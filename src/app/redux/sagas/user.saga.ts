@@ -1,6 +1,6 @@
-import { put, call, takeLatest} from 'redux-saga/effects';
-import {USER_ACTIONS} from '../action-types/user.types'
-import execute, { user } from '../../services/apis';
+import { put, call, takeLatest } from "redux-saga/effects";
+import { USER_ACTIONS } from "../action-types/user.types";
+import execute, { user } from "../../services/apis";
 
 function* getAll() {
   try {
@@ -16,4 +16,3 @@ const LOAD_USERS = USER_ACTIONS.LOAD_USERS;
 export default function* userSagas() {
   yield takeLatest(LOAD_USERS, getAll);
 }
-
