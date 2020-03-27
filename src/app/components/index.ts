@@ -1,4 +1,7 @@
-import Header from "./header.component";
-import Body from "./body.component";
+import Header from './header.component';
+import Body from './body.component';
 
-export { Header, Body };
+export {
+  Header,
+  Body
+}
