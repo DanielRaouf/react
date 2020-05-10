@@ -1,13 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 import { RouteComponentProps, navigate } from "@reach/router";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { Header, Body } from "../components";
-// import { connect } from 'react-redux';
+import { AppState, AppDispatch } from "../redux/store";
 
-interface IProps extends RouteComponentProps, WithTranslation {}
-interface IState {}
+interface IHomeProps extends RouteComponentProps, WithTranslation {}
+interface IHomeState {}
 
-class Home extends React.Component<IProps, IState> {
+class Home extends React.Component<IHomeProps, IHomeState> {
   render() {
     const { t } = this.props;
     return (
@@ -30,4 +31,15 @@ const styles = {
   },
 };
 
-export default withTranslation(["home"])(Home);
+const mapStateToProps = (state: AppState, ownProps: any) => {
+  return { isLoading: state.user.loading };
+};
+
+const mapDispatchToProps = (dispatch: AppDispatch) => ({
+  // buyProduct: item => dispatch(actions.buyProduct(item)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withTranslation(["home"])(Home));

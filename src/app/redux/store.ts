@@ -17,5 +17,6 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 export type AppState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;

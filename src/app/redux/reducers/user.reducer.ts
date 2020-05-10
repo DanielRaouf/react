@@ -1,7 +1,15 @@
 import { IUserAction, USER_ACTIONS } from "../action-types/user.types";
 
-let USER_INITIAL_STATE = {};
-function user(state = USER_INITIAL_STATE, action: IUserAction) {
+export interface IUserState {
+  loading: boolean;
+}
+
+let USER_INITIAL_STATE: IUserState = { loading: false };
+
+function user(
+  state: IUserState = USER_INITIAL_STATE,
+  action: IUserAction
+): IUserState {
   switch (action.type) {
     case USER_ACTIONS.LOAD_USERS:
       return {
