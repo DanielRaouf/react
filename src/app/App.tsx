@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Router } from "@reach/router";
+import { Router } from "@reach/router";
 import { Provider } from "react-redux";
 import { Home, Profile } from "./pages";
 import store from "./redux/store";
@@ -19,8 +19,7 @@ const App = () => {
       <RTLHandler />
       <Provider store={store}>
         <Router>
-          <Redirect from={"/"} to={"/home"} />
-          <Home path="/home" />
+          <Home path="/*" />
           <Profile path="/profile" />
         </Router>
       </Provider>
