@@ -1,6 +1,6 @@
 import * as user from "./user.api";
 import { IRequest } from "./types";
-const baseUrl = "http://localhost";
+const baseUrl = "https://b457323a-48c5-43f3-aa49-5bfe80f0a465.mock.pstmn.io";
 
 const serializeQueryString = (obj: any) => {
   const str = [];
