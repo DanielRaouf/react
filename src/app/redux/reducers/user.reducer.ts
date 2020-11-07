@@ -1,8 +1,9 @@
+import { User } from "../../models";
 import { IUserAction, USER_ACTIONS } from "../action-types/user.types";
 
 export interface IUserState {
   loading: boolean;
-  list: Array<any>;
+  list: Array<User>;
 }
 
 let USER_INITIAL_STATE: IUserState = { loading: false, list: [] };
@@ -21,7 +22,7 @@ function user(
       return {
         ...state,
         loading: false,
-        ...action.payload,
+        list: action.payload,
       };
     case USER_ACTIONS.LOAD_USERS_FAIL:
       return {

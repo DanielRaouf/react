@@ -6,5 +6,5 @@ export enum USER_ACTIONS {
 
 export interface IUserAction {
   type: USER_ACTIONS;
-  payload: any;
+  payload?: any;
 }

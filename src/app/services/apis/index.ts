@@ -10,14 +10,15 @@ const serializeQueryString = (obj: any) => {
   return query ? `?${query}` : "";
 };
 
-const execute = (request: IRequest): Promise<any> => {
-  return fetch(
+const execute = async (request: IRequest): Promise<any> => {
+  const res = await fetch(
     `${baseUrl}/${request.endpoint}${serializeQueryString(request.query)}`,
     {
       method: request.method,
       body: request.body,
     }
-  ).then((res) => res.json());
+  );
+  return await res.json();
 };
 
 export default execute;
